@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>JQuery - Exercice 4</title>
+</head>
+<body>
+  <form>
+    <div id="block" style="background-color:gray; height:10px;"></div>
+    <button type="button" name="button" id="button1">Modifie taille</button>
+    <button type="button" name="button" id="button2">Couleur fond en vert</button>
+    <button type="button" name="button" id="button3">Couleurs par défaut</button>
+    <button type="button" name="button" id="button4">Masquer Div</button>
+    <button type="button" name="button" id="button5">Afficher Div</button>
+  </form>
+  <script src="assets/js/jquery-3.2.1.js"></script>
+  <script>
+  // Déclaration d'une variable qui correspond à la taille
+  var height = $('#block').height();
+  // Déclaration d'une variable qui correspond à la couleur initiale
+  var startColor = $('#block').css('background-color');
+  // Détecte le clique sur la div ayant l'id block
+  $('#button1').click(function(){
+    // Vérifie si la variable height est égale à 100
+    if (height == 100) {
+      // Si la variable height est égale à 100, lui donne la valeur 10
+      height = 10;
+    } else {
+      // Sinon ajoute 10 à la variable height
+      height += 10;
+    }
+    console.log(height);
+    // Définie la hauteur de la div ayant l'id block en concaténant la variable height avec l'unité (px)
+    $('#block').css('height', height + 'px');
+  });
+  // Attribue la couleur verte au fond de la div ayant l'id block
+  $('#button2').click(function(){
+    $('#block').css('background-color', 'green');
+  });
+  // Attribue la couleur white au fond de la div ayant l'id block
+  $('#button3').click(function(){
+    $('#block').css('background-color', startColor);
+  });
+  // Cache la div ayant l'id block
+  $('#button4').click(function(){
+    $('#block').hide();
+  });
+  // Affiche la div ayant l'id block
+  $('#button5').click(function(){
+    $('#block').show();
+  });
+  </script>
+</body>
+</html>
